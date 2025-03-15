@@ -26,12 +26,12 @@ export default function leaderboard({ children }: { children: React.ReactNode })
           <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
           {users.map((user, i = 0) => {
             return (
-              <>
-                <div key={user.id} className="text-sm">
+              <div key={user.id}>
+                <div className="text-sm">
                   {i + 1}. {user.username}
                 </div>
                 <Separator className="my-2" />
-              </>
+              </div>
             )
           })}
         </div>

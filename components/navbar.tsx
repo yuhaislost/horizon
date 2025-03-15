@@ -27,9 +27,9 @@ import Quiz_Popup from "./quiz_popup"
 export default function Navbar() {
     return (
         <Sidebar>
-            <SidebarContent className="w-full">
+            <SidebarContent className="w-full bg-[#0F111C] text-white">
                 <SidebarGroup/>
-                    <SidebarGroupLabel>Menu</SidebarGroupLabel>
+                    <SidebarGroupLabel className="text-white">Menu</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
 
