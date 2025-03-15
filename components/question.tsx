@@ -28,7 +28,7 @@ export default function Question(props: { questions: any; page: number; nextPage
             }
 
 
-            setNextButton(<Button onClick={() => nextPage()}>Next Questions</Button>)
+            setNextButton(<Button variant="outline" onClick={() => nextPage()}>Next Questions</Button>)
         }
 
         // If question type is fill in the blanks or short answer (unfinished)
@@ -43,7 +43,7 @@ export default function Question(props: { questions: any; page: number; nextPage
 
         const options = document.getElementsByClassName('options')
         for (let option of options) {
-            option.style.background = 'white'
+            option.style.background = ''
             option.style.pointerEvents = "auto"
         }
     }, [currentQuestion])
@@ -57,7 +57,7 @@ export default function Question(props: { questions: any; page: number; nextPage
                 <div className="flex flex-wrap ">
                     {currentQuestion ? currentQuestion.options.map((option: string) => {
                         return (
-                            <Button variant="outline" className="options max-w-1/2" variant="outline" onClick={(e) => checkResponse(e)}>{option}</Button>
+                            <Button variant="outline" className="options max-w-1/2" onClick={(e) => checkResponse(e)}>{option}</Button>
                         )
                     }) : <></>}
                 </div>

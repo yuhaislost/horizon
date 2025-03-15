@@ -32,13 +32,12 @@ export default function quiz() {
   }, [hearts])
 
   return (
-    <div className="flex flex-col m-10">
+    <div className="flex flex-col m-10 text-white">
       <div className="flex justify-between p-5 pr-10 pl-10">
 
         <Button variant="outline">
           <Link href="/">Home</Link>
         </Button>
-        <Button variant="outline">Other</Button>
       </div>
       <Separator className="" />
 

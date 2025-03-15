@@ -11,6 +11,7 @@ import { Textarea } from "./ui/textarea"
 import { SidebarMenuButton } from "./ui/sidebar"
 import Link from "next/link"
 import { useRouter } from 'next/navigation'
+import { Button } from "./ui/button"
 
 export default function Quiz_Popup() {
     const router = useRouter()
@@ -30,17 +31,17 @@ export default function Quiz_Popup() {
                 Quiz
             </SidebarMenuButton>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="text-white">
                 <DialogHeader>
                     <DialogTitle>Upload text to start generating questions!</DialogTitle>
                     <DialogDescription>
                         <Textarea />
-                        <div onClick={() => {
+                        <Button variant="outline" className="text-white" onClick={() => {
                             createQuestions()
                             router.push('/quiz')
                         }}>
                             Start Quiz!
-                        </div>
+                        </Button>
                     </DialogDescription>
                 </DialogHeader>
             </DialogContent>
