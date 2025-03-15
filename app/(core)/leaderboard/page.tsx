@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { useState } from "react";
 import { UsersPlaceholder } from "@/components/placeholder_data";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
 export default function leaderboard({ children }: { children: React.ReactNode }) {
