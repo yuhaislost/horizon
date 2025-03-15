@@ -4,7 +4,7 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState }
 
 export default function Question(props: { questions: any; page: number; nextPage: any; setCorrectCount: any; correctCount: any; hearts: number; setHearts: any }) {
     const { questions, page, nextPage, correctCount, setCorrectCount, hearts, setHearts } = props
-    const currentQuestion = questions[page - 2]
+    const currentQuestion = questions[page - 1]
 
     // Check choice against question answer
     const checkResponse = (response: string | undefined) => {

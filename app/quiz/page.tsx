@@ -14,8 +14,8 @@ export default function quiz() {
   const [correctCount, setCorrectCount] = useState(0)
 
   // Placeholder Values
-  //const [questions, SetQuestions] = useState(MCQ_Questions)
-  const [questions, SetQuestions] = useState(FITB_Questions)
+  const [questions, SetQuestions] = useState(MCQ_Questions)
+  // const [questions, SetQuestions] = useState(FITB_Questions)
   const [hearts, setHearts] = useState(3)
 
   const nextPage = () => {
@@ -33,9 +33,7 @@ export default function quiz() {
     <div >
       {page === 0 ?
         <div>Fail! You ran out of hearts</div>
-        : page === 1 ? 
-        <Button variant="outline" onClick={() => nextPage()}>Start Quiz</Button>
-        : page > 1 && page < questions.length + 2?
+        : page > 0 && page < questions.length + 1?
           <div>
             <Question questions={questions} page={page} nextPage={nextPage} correctCount={correctCount} setCorrectCount={setCorrectCount} hearts={hearts} setHearts={setHearts}></Question>
           </div>
