@@ -7,13 +7,23 @@ export default function Question(props: { questions: any; page: number; nextPage
     const currentQuestion = questions[page - 2]
 
     // Check choice against question answer
-    const checkResponse = (response: string) => {
-        if (response === currentQuestion.answer) {
-            setCorrectCount(correctCount + 1)
-        } else {
-            setHearts(hearts - 1)
+    const checkResponse = (response: string | undefined) => {
+
+        // If question time is multiple choice
+        if (currentQuestion.type === 'MCQ') {
+            if (response === currentQuestion.answer) {
+                setCorrectCount(correctCount + 1)
+            } else {
+                setHearts(hearts - 1)
+            }
+            nextPage()
+        } 
+        
+        // If question type is fill in the blanks or short answer (unfinished)
+        else {
+            let input = document.querySelector('textarea').value;
+            alert(input)
         }
-        nextPage()
     }
 
     return (
@@ -29,9 +39,10 @@ export default function Question(props: { questions: any; page: number; nextPage
                         )
                     }) : <></>}
                 </div>
-                : 
+                :
                 <div>
-                    <Textarea />
+                    <Textarea className="w-50" />
+                    <Button variant="outline" onClick={() => checkResponse(undefined)}>Submit</Button>
                 </div>
             }
         </div>
