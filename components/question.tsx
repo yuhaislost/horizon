@@ -55,9 +55,9 @@ export default function Question(props: { questions: any; page: number; nextPage
 
             {currentQuestion.type === 'MCQ' ?
                 <div className="flex flex-wrap ">
-                    {currentQuestion ? currentQuestion.options.map((option: string) => {
+                    {currentQuestion ? currentQuestion.options.map((option: string, i = 0) => {
                         return (
-                            <Button variant="outline" className="options max-w-1/2" onClick={(e) => checkResponse(e)}>{option}</Button>
+                            <Button id={i} variant="outline" className="options max-w-1/2" onClick={(e) => checkResponse(e)}>{option}</Button>
                         )
                     }) : <></>}
                 </div>
