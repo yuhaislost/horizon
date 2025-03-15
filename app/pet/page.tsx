@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function pet() {
   return (
-    <div>
+    <div className="text-white">
       <div>
         Pet
       </div>

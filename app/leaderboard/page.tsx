@@ -23,7 +23,7 @@ export default function leaderboard({ children }: { children: React.ReactNode })
 
       <ScrollArea className="h-72 w-48 rounded-md border">
         <div className="p-4">
-          <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+          <h4 className="mb-4 text-sm font-medium leading-none">Leaderboard</h4>
           {users.map((user, i = 0) => {
             return (
               <div key={user.id}>
