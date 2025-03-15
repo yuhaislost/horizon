@@ -1,4 +1,4 @@
-export default function MCQ_Questions() {
+export function MCQ_Questions() {
 
     // Placeholder Questions
     const question1 = {
@@ -39,4 +39,25 @@ export default function MCQ_Questions() {
     return (
         [question1, question2, question3, question4]
     )
+}
+
+export function FITB_Questions() {
+    const question1 = {
+        question: "1+1 is ___ and 2+2 is ____",
+        type: "FITB", //Fill in the Blanks (Can change type name later)
+        answer: ["2", "4"],
+        options: null
+      }
+
+      const question2 = {
+        question: "1+2 is ___ and 2+3 is ____",
+        type: "FITB", //Fill in the Blanks (Can change type name later)
+        answer: ["3", "5"],
+        options: null
+      }
+
+    return (
+        [question1, question2]
+    )
+    
 }

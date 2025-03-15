@@ -3,15 +3,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import Question from "@/components/question";
-import MCQ_Questions from "@/components/placeholder_data";
+import { MCQ_Questions, FITB_Questions } from "@/components/placeholder_data";
 
-
-const question5 = {
-  question: "",
-  type: "FITB", //Fill in the Blanks (Can change type name later)
-  answer: "6",
-  options: ["6", "1", "3", "4"]
-}
 
 export default function quiz() {
   // Page 0 - Fail Page
@@ -21,8 +14,8 @@ export default function quiz() {
   const [correctCount, setCorrectCount] = useState(0)
 
   // Placeholder Values
-   const [questions, SetQuestions] = useState(MCQ_Questions)
-  // const [questions, SetQuestions] = useState([question5])
+  //const [questions, SetQuestions] = useState(MCQ_Questions)
+  const [questions, SetQuestions] = useState(FITB_Questions)
   const [hearts, setHearts] = useState(3)
 
   const nextPage = () => {

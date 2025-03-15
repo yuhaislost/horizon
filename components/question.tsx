@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react";
 
 export default function Question(props: { questions: any; page: number; nextPage: any; setCorrectCount: any; correctCount: any; hearts: number; setHearts: any }) {
@@ -30,7 +31,7 @@ export default function Question(props: { questions: any; page: number; nextPage
                 </div>
                 : 
                 <div>
-                    dawa
+                    <Textarea />
                 </div>
             }
         </div>
