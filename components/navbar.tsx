@@ -7,55 +7,51 @@ import {
     MenubarShortcut,
     MenubarTrigger,
 } from "@/components/ui/menubar"
-
 import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-
-import { Textarea } from "@/components/ui/textarea"
-
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarGroup,
+    SidebarGroupContent,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+} from "@/components/ui/sidebar"
 
 import Link from "next/link"
+import Quiz_Popup from "./quiz_popup"
 
 
 export default function Navbar() {
     return (
-        <>
-            <div >
-                <Menubar>
-                    <MenubarMenu>
-                        <Link href="/pet">Profile</Link>
-                    </MenubarMenu>
+        <Sidebar>
+            <SidebarHeader />
+            <SidebarContent>
+                <SidebarGroup />
+                <SidebarGroupLabel>Menu</SidebarGroupLabel>
+                <SidebarGroupContent>
+                    <SidebarMenu>
+                        <SidebarMenuItem>
+                            <SidebarMenuButton asChild>
+                                <Link href="/pet">Profile</Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                        <SidebarMenuItem>
 
-                    <MenubarMenu>
-                        <Dialog>
-                            <DialogTrigger>Quiz</DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Upload text to start generating questions!</DialogTitle>
-                                    <DialogDescription>
-                                        <Textarea />
-                                        <Link href="/quiz">Start Quiz!</Link>
-                                    </DialogDescription>
-                                </DialogHeader>
-                            </DialogContent>
-                        </Dialog>
+                            <Quiz_Popup></Quiz_Popup>
 
-                    </MenubarMenu>
-
-                    <MenubarMenu>
-                        <MenubarTrigger>
-                            <Link href="/leaderboard">Leaderboard</Link>
-                        </MenubarTrigger>
-                    </MenubarMenu>
-                </Menubar>
-
-            </div>
-        </>
+                        </SidebarMenuItem>
+                        <SidebarMenuItem>
+                            <SidebarMenuButton asChild>
+                                <Link href="/leaderboard">Leaderboard</Link>
+                            </SidebarMenuButton>
+                        </SidebarMenuItem>
+                    </SidebarMenu>
+                </SidebarGroupContent>
+            </SidebarContent>
+            <SidebarFooter />
+        </Sidebar>
     )
 }

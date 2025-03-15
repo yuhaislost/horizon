@@ -2,6 +2,7 @@ export function MCQ_Questions() {
 
     // Placeholder Questions
     const question1 = {
+        id: 1,
         question: "1+1",
         type: "MCQ",
         answer: "2",
@@ -9,6 +10,7 @@ export function MCQ_Questions() {
     }
 
     const question2 = {
+        id: 2,
         question: "1+2",
         type: "MCQ",
         answer: "3",
@@ -16,6 +18,7 @@ export function MCQ_Questions() {
     }
 
     const question3 = {
+        id: 3,
         question: "1+3",
         type: "MCQ",
         answer: "4",
@@ -23,6 +26,7 @@ export function MCQ_Questions() {
     }
 
     const question4 = {
+        id: 4,
         question: "1+5",
         type: "MCQ",
         answer: "6",
@@ -30,6 +34,7 @@ export function MCQ_Questions() {
     }
 
     const question5 = {
+        id: 5,
         question: "1+6",
         type: "MCQ",
         answer: "7",
@@ -43,6 +48,7 @@ export function MCQ_Questions() {
 
 export function FITB_Questions() {
     const question1 = {
+        id: 1,
         question: "1+1 is ___ and 2+2 is ____",
         type: "FITB", //Fill in the Blanks (Can change type name later)
         answer: ["2", "4"],
@@ -50,6 +56,7 @@ export function FITB_Questions() {
       }
 
       const question2 = {
+        id: 2,
         question: "1+2 is ___ and 2+3 is ____",
         type: "FITB", //Fill in the Blanks (Can change type name later)
         answer: ["3", "5"],

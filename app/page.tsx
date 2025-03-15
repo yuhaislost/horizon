@@ -1,9 +1,17 @@
 import Navbar from "@/components/navbar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
-export default function Home() {
+export default function Home({children}: {children:React.ReactNode}) {
   return (
     <>
-    <Navbar></Navbar>
+      <SidebarProvider>
+        <Navbar>
+          <main>
+            <SidebarTrigger />
+            {children}
+          </main>
+        </Navbar>
+      </SidebarProvider>
     </>
   );
 }
