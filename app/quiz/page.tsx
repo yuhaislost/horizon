@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import Question from "@/components/question";
+import { Separator } from "@/components/ui/separator"
 import { MCQ_Questions, FITB_Questions } from "@/components/placeholder_data";
+import Link from "next/link";
 
 
 export default function quiz() {
@@ -30,15 +32,26 @@ export default function quiz() {
   }, [hearts])
 
   return (
-    <div >
+    <div className="flex flex-col m-10">
+      <div className="flex justify-between p-5 pr-10 pl-10">
+
+        <Button variant="outline">
+          <Link href="/">Home</Link>
+        </Button>
+        <Button variant="outline">Other</Button>
+      </div>
+      <Separator className="" />
+
       {page === 0 ?
         <div>Fail! You ran out of hearts</div>
-        : page > 0 && page < questions.length + 1?
+        : page > 0 && page < questions.length + 1 ?
           <div>
             <Question questions={questions} page={page} nextPage={nextPage} correctCount={correctCount} setCorrectCount={setCorrectCount} hearts={hearts} setHearts={setHearts}></Question>
           </div>
           :
-          <div>Total: {correctCount}, Hearts: {hearts}</div>
+          <div>
+            Total: {correctCount}, Hearts: {hearts}
+          </div>
       }
 
     </div>

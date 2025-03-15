@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Question(props: { questions: any; page: number; nextPage: any; setCorrectCount: any, correctCount: any; hearts: number; setHearts: any }) {
     const { questions, page, nextPage, correctCount, setCorrectCount, hearts, setHearts } = props
@@ -27,7 +28,7 @@ export default function Question(props: { questions: any; page: number; nextPage
             }
 
 
-            setNextButton(<div onClick={() => nextPage()}>Next Questions</div>)
+            setNextButton(<Button onClick={() => nextPage()}>Next Questions</Button>)
         }
 
         // If question type is fill in the blanks or short answer (unfinished)
@@ -49,15 +50,14 @@ export default function Question(props: { questions: any; page: number; nextPage
 
 
     return (
-        <div className="flex justify-center items-center wrap flex-col">
-            <div>Question Page</div>
-            <div>Question {page}: {currentQuestion.question}</div>
+        <div className="flex justify-center items-center wrap flex-col w-vw h-vh gap-10 m-10">
+            <div className="text-5xl">{page}. {currentQuestion.question}</div>
 
             {currentQuestion.type === 'MCQ' ?
-                <div className="flex justify-center items-center wrap flex-col">
+                <div className="flex flex-wrap ">
                     {currentQuestion ? currentQuestion.options.map((option: string) => {
                         return (
-                            <Button className="options" variant="outline" onClick={(e) => checkResponse(e)}>{option}</Button>
+                            <Button variant="outline" className="options max-w-1/2" variant="outline" onClick={(e) => checkResponse(e)}>{option}</Button>
                         )
                     }) : <></>}
                 </div>

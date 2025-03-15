@@ -68,3 +68,39 @@ export function FITB_Questions() {
     )
     
 }
+
+export function UsersPlaceholder() {
+    const user1 ={
+        id: 1,
+        username: 'Bob'
+    }
+
+    const user2 ={
+        id: 2,
+        username: 'Dave'
+    }
+
+    const user3 ={
+        id: 3,
+        username: 'Daniel'
+    }
+
+    const user4 ={
+        id: 4,
+        username: 'Jared'
+    }
+    const user5 ={
+        id: 5,
+        username: 'Landen'
+    }
+    const user6 ={
+        id: 6,
+        username: 'Jordan'
+    }
+    const user7 ={
+        id: 7,
+        username: 'Mike'
+    }
+
+    return([user1, user2, user3, user4, user5, user6, user7])
+}
