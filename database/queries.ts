@@ -1,24 +1,65 @@
-import { eq, and, or, sql } from 'drizzle-orm';
-import { db } from '.';
-import { streak, hearts, balance, quest, currentQuest, question } from './schema';
+import { cache } from "react";
+import db from '@/database/drizzle';
+import { auth } from '@clerk/nextjs/server';
+import { balance, hearts, streak } from "./schema";
+import { eq } from "drizzle-orm";
 
+export const getHearts = cache( async () => {
+    const { userId } = await auth();
 
-// Streak
-export async function getStreak(userId: string) {
-  return db.select().from(streak).where(eq(streak.user_id, userId)).execute();
-}
+    if (!userId)
+    {
+        return null;
+    }
 
-// Hearts
-export async function getHearts(userId: string) {
-  return db.select().from(hearts).where(eq(hearts.user_id, userId)).execute();
-}
+    const data = await db.query.hearts.findFirst({
+        where: eq(hearts.userId, userId),
+    });
 
-// Balance
-export async function getBalance(userId: string) {
-  return db.select().from(balance).where(eq(balance.user_id, userId)).execute();
-}
+    if (!data)
+    {
+        return null;
+    }
 
-// Quest
-export async function getQuest(userId: string) {
-  return db.select().from(quest).where(eq(quest.user_id, userId)).execute();
-}
+    return {...data};
+});
+
+export const getStreaks = cache( async () => {
+    const { userId } = await auth();
+
+    if (!userId)
+    {
+        return null;
+    }
+
+    const data = await db.query.streak.findFirst({
+        where: eq(streak.userId, userId)
+    });
+
+    if (!data)
+    {
+        return null;
+    }
+
+    return {...data};
+});
+
+export const getCoins = cache( async () => {
+    const { userId } = await auth();
+
+    if (!userId)
+    {
+        return null;
+    }
+
+    const data = await db.query.balance.findFirst({
+        where: eq(balance.userId, userId),
+    });
+
+    if (!data)
+    {
+        return null;
+    }
+
+    return {...data};
+})

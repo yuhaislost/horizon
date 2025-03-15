@@ -1,55 +1,55 @@
-import { pgTable, bigint, text, varchar, integer, boolean, timestamp, json, primaryKey, smallint } from 'drizzle-orm/pg-core';
-
-export const user = pgTable('user', {
-  user_id: text('user_id').primaryKey().notNull(),
-  firstName: varchar('firstName', { length: 255 }),
-  lastName: varchar('lastName', { length: 255 }),
-  email: varchar('email', { length: 255 }).unique(),
-  username: varchar('username', { length: 255 }).unique(),
-  passwordHash: varchar('passwordHash', { length: 255 }),
-  profile: text('profile'),
-  lastLogin: timestamp('lastLogin'),
-  lostHeartTime: timestamp('lostHeartTime')
-});
+import { relations } from 'drizzle-orm';
+import { pgTable, text, serial, integer, boolean, timestamp} from 'drizzle-orm/pg-core';
 
 export const streak = pgTable('streak', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  count: integer('count'),
-  updated: timestamp('updated')
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
+  ammount: integer('ammount').default(0),
+  lastIncrement: timestamp('last_increment').defaultNow().notNull(),
 });
 
 export const hearts = pgTable('hearts', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  count: smallint('count'),
-  updated: timestamp('updated')
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
+  ammount: integer('ammount').default(10),
+  lastIncrement: timestamp('last_increment').defaultNow().notNull(),
 });
 
 export const balance = pgTable('balance', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  count: integer('count')
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
+  ammount: integer('ammount').default(0),
 });
 
-export const quest = pgTable('quest', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  count: integer('count')
+
+export const expedition = pgTable('expedition', {
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
+  planetId: text('planet_id').notNull(),
+  completed: boolean('completed').notNull().default(false),
+  completedAt: timestamp('completed_at'),
+  createdAt: timestamp('created_at').defaultNow().notNull()
 });
 
-export const currentQuest = pgTable('currentQuest', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  questInput: text('questInput'),
-  context: text('context'),
-  questData: json('questData'),
-  completed: boolean('completed')
-});
+export const expeditionRelation = relations(expedition, ({ many }) => ({
+  questions: many(question),
+}));
 
 export const question = pgTable('question', {
-  user_id: text('user_id').primaryKey().notNull().references(() => user.user_id, { onDelete: 'cascade' }),
-  question_id: text('question_id').notNull().references(() => currentQuest.user_id, { onDelete: 'cascade' }),
-  type: varchar('type', { length: 255 }),
-  description: text('description'),
-  questionText: text('question'),
-  answer: text('answer'),
-  options: json('options'),
-  answerGuide: text('answerGuide'),
-  isInGraveyard: boolean('isInGraveyard')
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
+  inGraveyard: boolean('in_graveyard').notNull().default(true),
+  expeditionId: serial("expedition_id").references(() => expedition.id, {
+    onDelete: 'cascade',
+  }).notNull(),
+  options: text('options').array().notNull().default([]),
+  answer: text('answer').notNull(),
+  completed: boolean('completed').default(false),
 });
+
+export const questionsRelation = relations(question, ({ one }) => ({
+  expedition: one(expedition, {
+    fields: [question.expeditionId],
+    references: [expedition.id]
+  })
+}));
