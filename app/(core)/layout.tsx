@@ -2,7 +2,7 @@
 import { Sidebar } from '@/components/sidebar';
 import { SoundtrackProvider } from '@/providers/soundtrackProvider';
 
-const CoreLayout = ({ children } : { children: React.ReactNode }) => {
+export default function CoreLayout(({ children } : { children: React.ReactNode }) => {
     
     return (
         <>
@@ -15,6 +15,5 @@ const CoreLayout = ({ children } : { children: React.ReactNode }) => {
             </main>
         </>
     );
-}
+})
 
-export default CoreLayout;

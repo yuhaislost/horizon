@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
-import Question from "@/components/question";
+//import Question from "@/components/question";
 import { Separator } from "@/components/ui/separator"
-import { MCQ_Questions, FITB_Questions } from "@/components/placeholder_data";
+//import { MCQ_Questions, FITB_Questions } from "@/components/placeholder_data";
 import Link from "next/link";
 
 
