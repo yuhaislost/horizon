@@ -14,7 +14,7 @@ import Link from "next/link"
 export default function Navbar() {
     return (
         <>
-            <div>
+            <div className="w-full h-full">
                 <Menubar>
                     <MenubarMenu>
                     <MenubarTrigger>
@@ -24,7 +24,7 @@ export default function Navbar() {
 
                     <MenubarMenu>
                         <MenubarTrigger>
-                            <Link href="/quiz-session">Quiz</Link>
+                            <Link href="/quiz">Quiz</Link>
                         </MenubarTrigger>
                     </MenubarMenu>
 
