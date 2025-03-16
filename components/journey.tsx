@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import MakeQuiz from "./make-quix";
 import Image from "next/image";
+import { Progress } from "@/components/ui/progress"
 
 
 export default function Journey() {
