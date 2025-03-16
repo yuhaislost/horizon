@@ -38,12 +38,13 @@ export const expeditionRelation = relations(expedition, ({ many }) => ({
 export const question = pgTable('question', {
   id: serial('id').primaryKey(),
   userId: text('user_id').notNull().unique(),
+  questionContent: text("question_content").notNull(),
   inGraveyard: boolean('in_graveyard').notNull().default(true),
   expeditionId: serial("expedition_id").references(() => expedition.id, {
     onDelete: 'cascade',
   }).notNull(),
   options: text('options').array().notNull().default([]),
-  answer: text('answer').notNull(),
+  answer: integer('answer').notNull(),
   completed: boolean('completed').default(false),
 });
 

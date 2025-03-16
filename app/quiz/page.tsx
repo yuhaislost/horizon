@@ -1,59 +1,25 @@
-"use client"
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { getCurrentExpedition, getHearts } from "@/database/queries";
+import { Quiz } from "./_components/quiz";
+import { redirect } from "next/navigation";
 
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button"
-import Question from "@/components/question";
-import { Separator } from "@/components/ui/separator"
-import { MCQ_Questions, FITB_Questions } from "@/components/placeholder_data";
-import Link from "next/link";
+const QuizPage = async () => {
 
+  // const expeditionDataPromise = getCurrentExpedition();
+  // const userHeartsPromise = getHearts();
 
-export default function quiz() {
-  // Page 0 - Fail Page
-  // Page 1 - Start Page
-  // Page 2 to <Question Length> - Question Page
-  const [page, setPage] = useState(1)
-  const [correctCount, setCorrectCount] = useState(0)
+  // const [expeditionData, userHearts] = await Promise.all([expeditionDataPromise, userHeartsPromise]);
 
-  // Placeholder Values
-  const [questions, SetQuestions] = useState(MCQ_Questions)
-  // const [questions, SetQuestions] = useState(FITB_Questions)
-  const [hearts, setHearts] = useState(3)
+  // if (!expeditionData)
+  // {
+  //   return redirect('/study');
+  // }
 
-  const nextPage = () => {
-    const nextPage = page + 1
-    setPage(nextPage)
-  }
-
-  useEffect(() => {
-    if (hearts <= 0) {
-      setPage(0)
-    }
-  }, [hearts])
+  // const percentageCompletion = expeditionData.completedCount / expeditionData.questionData.length * 100;
 
   return (
-    <div className="flex flex-col m-10">
-      <div className="flex justify-between p-5 pr-10 pl-10">
-
-        <Button variant="outline">
-          <Link href="/">Home</Link>
-        </Button>
-        <Button variant="outline">Other</Button>
-      </div>
-      <Separator className="" />
-
-      {page === 0 ?
-        <div>Fail! You ran out of hearts</div>
-        : page > 0 && page < questions.length + 1 ?
-          <div>
-            <Question questions={questions} page={page} nextPage={nextPage} correctCount={correctCount} setCorrectCount={setCorrectCount} hearts={hearts} setHearts={setHearts}></Question>
-          </div>
-          :
-          <div>
-            Total: {correctCount}, Hearts: {hearts}
-          </div>
-      }
-
-    </div>
+    <Quiz expeditionId={10} questions={[]} initialHearts={5} initialPercentage={70}/>
   );
 }
+
+export default QuizPage;

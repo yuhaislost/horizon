@@ -1,7 +1,6 @@
 import { SideWrapper } from "@/components/side-wrapper";
 import { UserStats } from "@/components/user-stats";
 import { getCoins, getHearts, getStreaks } from "@/database/queries";
-import Image from "next/image";
 import { redirect } from "next/navigation";
 
 
