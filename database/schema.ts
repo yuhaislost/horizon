@@ -11,7 +11,7 @@ export const streak = pgTable('streak', {
 export const hearts = pgTable('hearts', {
   id: serial('id').primaryKey(),
   userId: text('user_id').notNull().unique(),
-  ammount: integer('ammount').default(10),
+  ammount: integer('ammount').default(10).notNull(),
   lastIncrement: timestamp('last_increment').defaultNow().notNull(),
 });
 

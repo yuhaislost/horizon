@@ -109,6 +109,31 @@ export const getExpedition = cache( async (id: number) => {
     return expeditionData;
 });
 
+export const getQuestion = cache( async (id: number) => {
+    const { userId } = await auth();
+
+    if (!userId)
+    {
+        return null;
+    }
+
+    const questionData = await db.query.question.findFirst({
+        where: eq(question.id, id)
+    });
+
+    if (!questionData)
+    {
+        return null;
+    }
+
+    if (questionData.userId != userId)
+    {
+        return null;
+    }
+
+    return questionData;
+})      
+
 export const getCurrentExpedition =  cache ( async () => {
     const { userId } = await auth();
 

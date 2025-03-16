@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-white border-slate-200 border-2 border-b-4 active:border-b-2 hover:bg-slate-100 text-slate-500",
         primary: "bg-primary text-background hover:bg-primary/90 border-[#B9AE8B] border-b-4 active:border-b-0",
+        disabled: "bg-[#1D2032] text-[#3F4168] border-[#23273D] border-b-4",
         primaryOutline: "bg-none text-primary hover:bg-[#292E4C]",
         secondary: "bg-secondary text-white border-accent border-2 border-b-4 active:border-b-0 hover:bg-secondary/90",
         sidebar: "text-white border-2 border-transparent hover:border-secondary bg-transparent",
