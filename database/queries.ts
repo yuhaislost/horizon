@@ -1,7 +1,7 @@
 import { cache } from "react";
 import db from '@/database/drizzle';
 import { auth } from '@clerk/nextjs/server';
-import { balance, expedition, hearts, question, streak } from "./schema";
+import { balance, expedition, hearts, knowledgeBase, question, streak } from "./schema";
 import { eq, and } from "drizzle-orm";
 
 export const getHearts = cache( async () => {
@@ -62,6 +62,26 @@ export const getCoins = cache( async () => {
     }
 
     return {...data};
+});
+
+export const getKnowledge = cache( async () => {
+    const { userId } = await auth();
+
+    if (!userId)
+    {
+        return null;
+    }
+
+    const data = await db.query.knowledgeBase.findFirst({
+        where: eq(knowledgeBase.userId, userId),
+    });
+
+    if (!data)
+    {
+        return null;
+    }
+
+    return data.content;
 });
 
 export const getExpeditionQuestions = cache( async (id: number) => {

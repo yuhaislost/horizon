@@ -21,6 +21,12 @@ export const balance = pgTable('balance', {
   ammount: integer('ammount').default(0),
 });
 
+export const knowledgeBase = pgTable('knowledge_base', {
+  id: serial('id').primaryKey(),
+  userId: text("user_id").notNull().unique(),
+  content: text("content").notNull(),
+});
+
 
 export const expedition = pgTable('expedition', {
   id: serial('id').primaryKey(),

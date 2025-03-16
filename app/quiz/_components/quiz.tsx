@@ -6,7 +6,7 @@ import { Header } from "./header";
 import { useState, useTransition } from "react";
 import { Question } from "./question";
 import { Button } from "@/components/ui/button";
-import { completeQuestion } from "@/action/questionActions";
+import { addToGraveyard, completeQuestion } from "@/action/questionActions";
 import { reduceHearts } from "@/action/heartActions";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
@@ -56,8 +56,8 @@ export const Quiz = ({ expeditionId, initialPercentage, initialHearts, questions
            setHasAnswered(false);
            startTransition(() => {
                 reduceHearts(userId).then(() => {}).catch(() => {});
-                
-           }) 
+                addToGraveyard(id).then(() => {}).catch(() => {});
+           });
         }
     }
 

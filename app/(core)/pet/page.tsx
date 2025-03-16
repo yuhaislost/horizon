@@ -1,22 +1,18 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { getQuestions } from "@/action/aiActions";
 
 
-export default function pet() {
+export default async function pet() {
+
+  const onClick = async () => {
+    const questionData = await getQuestions();
+    console.log(questionData);
+  }
+
+  onClick();
+
   return (
     <div>
-      <div>
-        Pet
-      </div>
-      <Tabs defaultValue="account" className="w-[400px]">
-        <TabsList>
-          <TabsTrigger value="food">Food</TabsTrigger>
-          <TabsTrigger value="hygiene">Hygiene</TabsTrigger>
-          <TabsTrigger value="entertainment">Entertainment</TabsTrigger>
-        </TabsList>
-        <TabsContent value="food">Buy food here</TabsContent>
-        <TabsContent value="hygiene">Buy hygiene here</TabsContent>
-        <TabsContent value="entertainment">Buy entertainment here</TabsContent>
-      </Tabs>
+
     </div>
   );
 }
