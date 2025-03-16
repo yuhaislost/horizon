@@ -3,6 +3,7 @@ import { UserStats } from "@/components/user-stats";
 import { getCoins, getHearts, getStreaks } from "@/database/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import Journey from "@/components/journey";
 
 
 const LearnPage = async () => {
@@ -10,21 +11,20 @@ const LearnPage = async () => {
     const userStreaksPromise = getStreaks();
     const userCoinsPromise = getCoins();
 
-    const [ userHearts, userStreaks, userCoins] = await Promise.all([userHeartsPromise, userStreaksPromise, userCoinsPromise]);
+    const [userHearts, userStreaks, userCoins] = await Promise.all([userHeartsPromise, userStreaksPromise, userCoinsPromise]);
 
-    if (!userHearts || !userStreaks || !userCoins)
-    {
-        redirect('/');
-    }
-    
+    // if (!userHearts || !userStreaks || !userCoins)
+    // {
+    // redirect('/');
+    // }
+
     return (
-        <div className="flex flex-row-reverse gap-[48px] lg:px-6">
+        <div className="flex flex-row-reverse gap-[48px] lg:px-6 h-full w-full">
             <SideWrapper>
-                <UserStats hearts={userHearts.ammount!} streaks={userStreaks.ammount!} coins={userCoins.ammount!}/>
+                <UserStats hearts={1} streaks={1} coins={1} />
             </SideWrapper>
-            <div className="flex relative top-0 pb-10">
-                {/* <Image src={'/planets/4.png'} alt="Earth" width={300} height={300}/> */}
-            </div>
+            <Journey></Journey>
+
         </div>
     );
 }

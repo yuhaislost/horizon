@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function landing() {
-    // Parallax Practice 1
+
     function parallax() {
         const scrolled = window.scrollY;
         document.getElementById("layer-4").style.top = (0 - (scrolled * 0.25)) + "px";
@@ -15,12 +15,9 @@ export default function landing() {
     }
 
     useEffect(() => {
-
         window.addEventListener("scroll", function () {
             parallax();
         });
-
-
     }, [])
 
 
@@ -39,9 +36,9 @@ export default function landing() {
 
             <div className="h-[4600px] flex justify-center">
                 <div id="layer-1" className="z-0 fixed block bg-no-repeat w-screen max-w-[2000px]">
-                    <div className="top-[300px] ml-[60%] right-[15%] absolute text-3xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                    <div className="top-[1050px] left-30 absolute text-3xs">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</div>
-                    <div className="top-[1600px] left-[40vw] absolute text-3xs"> Excepteur sint occaecat cupidatat non proident</div>
+                    <div className="top-[300px] ml-[60%] right-[15%] absolute text-5xs">Struggling to study? Galileo transforms your notes into fun, interactive games!</div>
+                    <div className="top-[1050px] left-30 absolute text-5xs">Education should be free—Galileo gives you unlimited access with no ads, ever.</div>
+                    <div className="top-[1600px] left-[15vw] absolute text-5xs">From classrooms to remote villages, Galileo makes quality learning accessible to everyone.</div>
                 </div>
             
 
