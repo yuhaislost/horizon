@@ -41,7 +41,6 @@ This software uses the following open source packages:
   - Next.js (React framework for performance and scalability)  
   - Tailwind CSS (Modern styling)  
   - Shadcn-UI (UI components)  
-  - Framer Motion (Smooth animations)
   
 - Backend  
   - Next.js API routes  
