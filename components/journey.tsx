@@ -31,7 +31,7 @@ export default function Journey() {
                     {expeditions ? expeditions.map((expedition, i = 0) => {
                         i++
                         return (
-                            <img key={i} src={`/planets/${i % 6 + 1}.png`} height={500} width={500} alt="earth" className={`w-[125px]`} />
+                            <img key={i} src={`/planets/${i % 6 + 1}.png`} height={500} width={500} alt="earth" className="w-[125px]" />
                         )
                     })
                         :

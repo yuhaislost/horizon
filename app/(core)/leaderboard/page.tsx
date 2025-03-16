@@ -54,7 +54,7 @@ export default function leaderboard({ children }: { children: React.ReactNode })
                     {users.map((user, i = 0) => {
                         return (
                             <div key={user.id}>
-                                <div className="text-sm flex flex-row justify-between">
+                                <div className="text-sm flex flex-row justify-between hover:scale-95">
                                     <div className="flex justify-center items-center gap-5">
                                         <img src="/icons/profile.png" alt="profile" width={28} height={28} className="fill-white" />
                                         <div>{i + 1}. {user.username}</div>
