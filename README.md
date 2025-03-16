@@ -2,10 +2,16 @@
 
 **Galileo is an AI-powered educational app that generates multiple-choice questions sets tailored to a specific piece of given content.** By tracking progress with streaks, rewarding learning through interactive challenges and a virtual pet system, it transforms studying into an engaging, gamified experience.  
 
-![homepage](https://github.com/user-attachments/assets/b39bd525-3b53-4eb0-891e-74d5c9b02ca4)
+![LandingPagelarge](https://github.com/user-attachments/assets/1a092416-7a01-4802-967d-9a14f9db8b88)
+
 
 ## Getting Started
 **🎮 Gamification Elements**  
+- 📚 AI-Powered Learning  
+  - Generate Custom Questions: AI-generated multiple-choice, short-answer, and fill-in-the-blank questions from raw text.
+
+![HomePage](https://github.com/user-attachments/assets/fdad01a9-ac58-4fb9-9aa5-67b3bbec13d7)
+    
 - ❓ Question Interaction System:  
   - Daily quests with streak-based rewards.  
   - Correct Answers ✅: Gain coins and watch cool animations.  
@@ -27,10 +33,9 @@
   - Three status bars: Hunger, Hygiene, and Happiness.  
   - Buy food, sanitary services, and entertainment to keep your pet happy.
   
-- 📚 AI-Powered Learning  
-  - Generate Custom Questions: AI-generated multiple-choice, short-answer, and fill-in-the-blank questions from raw text.  
 
-## Credits  
+
+## Tech Stack  
 This software uses the following open source packages:
 - Frontend  
   - Next.js (React framework for performance and scalability)  
@@ -48,7 +53,7 @@ This software uses the following open source packages:
 - Authentication  
   - Clerk.js (User authentication and account management)
   
-- Database Schema  
+ ## Database Schema  
   - User     : id, username, email, password  
   - Question : Stores AI-generated questions and user progress.  
   - Coins    : Tracks earned coins.  
